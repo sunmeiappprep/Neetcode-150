@@ -27,9 +27,31 @@
 
 
 var topKFrequent = function(nums, k) {
+    let hash = {}
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        (hash[num]) ? hash[num] += 1 : hash[num] = 1
+    }
+    let hashToArray = []
+    for (const key in hash){
+        hashToArray.push([key,hash[key]])
+    }
     
+    hashToArray.sort((a,b) => b[1]-a[1])
+
+    let answer = []
+        for (let i = 0; i < hashToArray.length; i++) {
+            const element = hashToArray[i];
+            answer.push(element[0])
+            k--
+            if (k <= 0){
+                return answer
+            }
+        }
+
 };
 
-console.log()
-console.log()
-console.log()
+console.log(topKFrequent([1,1,1,2,2,3],2))
+console.log(topKFrequent([1],1))
+// console.log(topKFrequent())
+// 

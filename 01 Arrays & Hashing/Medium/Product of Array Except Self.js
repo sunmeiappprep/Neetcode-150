@@ -25,9 +25,22 @@
 //     The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
 var productExceptSelf = function(nums) {
-    
+    let answer = new Array(nums.length)
+    let left = 1
+    let right = 1
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        answer[i] = left
+        left *= num
+    }
+
+    for (let i = nums.length-1; i >= 0; i--) {
+        answer[i] *= right
+        right *= nums[i]
+    }
+    return answer
 };
 
-console.log()
-console.log()
-console.log()
+console.log(productExceptSelf([1,2,3,4]))
+console.log(productExceptSelf([-1,1,0,-3,3]))
+// console.log(productExceptSelf())
