@@ -20,9 +20,9 @@ var trap = function(height) {
             }
             else if( height[r] < maxRight){
                 sum += maxRight - height[r]
-            }
-            r--
+            }      
+            r- -  
         }
-    }
+    } 
     return sum
 };
